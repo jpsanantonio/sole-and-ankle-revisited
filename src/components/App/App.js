@@ -18,6 +18,7 @@ const App = () => {
 };
 
 const Main = styled.main`
+  min-width: calc(300 / 16 * 1rem);
   padding: 64px 32px;
 `;
 
