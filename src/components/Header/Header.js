@@ -11,11 +11,6 @@ import Icon from '../Icon';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <HeaderWrapper>
       <SuperHeader />
@@ -64,6 +59,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
 
   @media ${QUERIES.phoneAndBelow} {
     padding: 16px 20px;
@@ -72,6 +68,7 @@ const MainHeader = styled.div`
 
   @media ${QUERIES.tabletAndBelow} {
     padding: 20px 32px;
+    border-top: 4px solid ${COLORS.gray[900]};
   }
 `;
 
@@ -110,7 +107,7 @@ const MenuButton = styled(UnstyledButton)`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 7vw - 3rem, 4rem);
   margin: 0px 48px;
 
   @media ${QUERIES.tabletAndBelow} {
