@@ -18,7 +18,13 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
+        <Nav
+          style={{
+            '--color': COLORS.gray[900],
+            '--active-color': COLORS.secondary,
+            '--font-weight': WEIGHTS.medium,
+          }}
+        >
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
@@ -123,11 +129,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--color);
+  font-weight: var(--font-weight);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--active-color);
   }
 `;
 

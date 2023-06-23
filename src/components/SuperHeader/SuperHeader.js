@@ -9,8 +9,13 @@ import Icon from '../Icon';
 
 const SuperHeader = () => {
   return (
-    <Wrapper>
-      <MarketingMessage>
+    <Wrapper
+      style={{
+        '--color': COLORS.gray[300],
+        '--background-color': COLORS.gray[900],
+      }}
+    >
+      <MarketingMessage style={{ '--color': COLORS.white }}>
         Free shipping on domestic orders over $75!
       </MarketingMessage>
       <SearchInput />
@@ -27,8 +32,8 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 24px;
   font-size: 0.875rem;
-  color: ${COLORS.gray[300]};
-  background-color: ${COLORS.gray[900]};
+  color: var(--color);
+  background-color: var(--background-color);
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
@@ -39,7 +44,7 @@ const Wrapper = styled.div`
 `;
 
 const MarketingMessage = styled.span`
-  color: ${COLORS.white};
+  color: var(--color);
   margin-right: auto;
 `;
 

@@ -11,11 +11,17 @@ import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Content aria-label="Menu">
+      <Content aria-label="Menu" style={{ '--background-color': COLORS.white }}>
         <CloseButton onClick={onDismiss}>
           <Icon id="close" strokeWidth={1} />
         </CloseButton>
-        <Nav>
+        <Nav
+          style={{
+            '--color': COLORS.gray[900],
+            '--active-color': COLORS.secondary,
+            '--font-weight': WEIGHTS.medium,
+          }}
+        >
           <NavItem href="/sale">Sale</NavItem>
           <NavItem href="/new">New&nbsp;Releases</NavItem>
           <NavItem href="/men">Men</NavItem>
@@ -23,7 +29,12 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <NavItem href="/kids">Kids</NavItem>
           <NavItem href="/collections">Collections</NavItem>
         </Nav>
-        <Footer>
+        <Footer
+          style={{
+            '--color': COLORS.gray[700],
+            '--font-weight': WEIGHTS.normal,
+          }}
+        >
           <FooterItem href="/terms">Terms and Conditions</FooterItem>
           <FooterItem href="/privacy">Privacy Policy</FooterItem>
           <FooterItem href="/contact">Contact Us</FooterItem>
@@ -53,9 +64,10 @@ const Content = styled(DialogContent)`
   position: absolute;
   top: 0;
   right: 0;
-  background-color: ${COLORS.white};
+  background-color: var(--background-color);
   text-transform: uppercase;
   height: 100%;
+  width: 66.66%;
   padding: 26px 26px 32px 32px;
 `;
 
@@ -74,9 +86,13 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled.a`
-  color: ${COLORS.gray[900]};
+  color: var(--color);
   text-decoration: none;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--font-weight);
+
+  &:first-of-type {
+    color: var(--active-color);
+  }
 `;
 
 const Footer = styled.footer`
@@ -86,9 +102,9 @@ const Footer = styled.footer`
 `;
 
 const FooterItem = styled.a`
-  color: ${COLORS.gray[700]};
+  color: var(--color);
   text-decoration: none;
-  font-weight: ${WEIGHTS.normal};
+  font-weight: var(--font-weight);
 `;
 
 export default MobileMenu;

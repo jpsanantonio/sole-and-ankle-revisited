@@ -10,7 +10,15 @@ const SearchInput = ({ label, ...delegated }) => {
   return (
     <Label>
       <VisuallyHidden>Search</VisuallyHidden>
-      <Input {...delegated} placeholder="Search…" />
+      <Input
+        {...delegated}
+        placeholder="Search…"
+        style={{
+          '--border-color': COLORS.gray[300],
+          '--input-color': COLORS.gray[100],
+          '--placeholder-color': COLORS.gray[500],
+        }}
+      />
       <SearchIcon id="search" strokeWidth={1} size={16} />
     </Label>
   );
@@ -23,14 +31,14 @@ const Label = styled.label`
 const Input = styled.input`
   border: none;
   background: transparent;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--border-color);
   padding-left: 24px;
   font-size: 0.875rem;
-  color: ${COLORS.gray[100]};
+  color: var(--input-color);
   outline-offset: 4px;
 
   &::placeholder {
-    color: ${COLORS.gray[500]};
+    color: var(--placeholder-color);
   }
 `;
 
